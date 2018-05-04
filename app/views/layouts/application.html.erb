@@ -16,17 +16,69 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        <header></header>
-        <nav></nav>
-        <ul id="slide-out" class="sidenav sidenav-fixed">
-            <li><%= link_to("Employees", {:controller => "employees", :action => "index"}) %></li>
-            <li><%= link_to("Students", {:controller => "students", :action => "index"}) %></li>
-            <li><%= link_to("Courses", {:controller => "courses", :action => "index"}) %></li>
-            <li><%= link_to("Cohorts", {:controller => "cohorts", :action => "index"}) %></li>
-            <li><%= link_to("Stats", {:controller => "stats", :action => "index"}) %></li>
-        </ul>
-        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <header>
+            <ul class="dropdown-content" id="user_dropdown">
+                <li><a class="grey-text" href="#!">Profile</a></li>
+                <li><a class="grey-text" href="#!">Logout</a></li>
+            </ul>
+
+            <nav class="indigo" role="navigation">
+                <div class="nav-wrapper">
+                    <a data-target="slide-out" class="sidenav-trigger show-on-medium-and-down" href="#!"><i class='material-icons'>menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a class='right dropdown-trigger' href='' data-target='user_dropdown'><i class='material-icons'>account_circle</i></a>
+                        </li>
+                    </ul>
+                    <a href="#" data-target="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+                </div>
+            </nav>
+
+
+            <nav>
+                <div class="nav-wrapper indigo darken-2">
+                    <a style="margin-left: 20px;" class="breadcrumb" href="#!">Admin</a>
+                    <a class="breadcrumb" href="#!">Index</a>
+
+                    <div style="margin-right: 20px;" id="timestamp" class="right"></div>
+                </div>
+            </nav>
+        </header>
         <main>
+            <ul id="slide-out" class="sidenav sidenav-fixed">
+                <li class="center no-padding">
+                    <div class="indigo darken-2 white-text" style="height: 180px;">
+                        <div class="row">
+                            <i class="indigo-text text-lighten-1 large material-icons">person</i>
+                            <div class="brand-sidebar">
+                                <h4 class="logo-wrapper">
+                                    <%= link_to("ADMIN PANEL", {:controller => "home", :action=>"index"}) %>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <ul>
+                    <li id="dash_employees">
+                        <div id="dash_employees_header"><b><%= link_to("Employees", {:controller => "employees", :action => "index"}) %></b></div>
+                    </li>
+
+                    <li id="dash_students">
+                        <div id="dash_students_header"><b><%= link_to("Students", {:controller => "students", :action => "index"}) %></b></div>
+                    </li>
+
+                    <li id="dash_courses">
+                        <div id="dash_courses_header"><b><%= link_to("Courses", {:controller => "courses", :action => "index"}) %></b></div>
+                    </li>
+
+                    <li id="dash_cohorts">
+                        <div id="dash_cohorts_header"><b><%= link_to("Cohorts", {:controller => "cohorts", :action => "index"}) %></b></div>
+                    </li>
+                    <li id="dash_stats">
+                        <div id="dash_stats_header"><b><%= link_to("Stats", {:controller => "stats", :action => "index"}) %></b></div>
+                    </li>
+                </ul>
+            </ul>
             <%= yield %>
         </main>
         <footer></footer>
