@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
 */
-
 header, main, footer {
       padding-left: 300px;
 }

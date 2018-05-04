@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root "home#index"
+
   get 'stats/index'
   get 'stats/new'
   get 'stats/edit'
@@ -19,12 +21,14 @@ Rails.application.routes.draw do
   get 'employees/new'
   get 'employees/edit'
   get 'employees/show'
-    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.
+  
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.
 
-    resource :employees
-    resource :students
-    resource :classes
-    resource :cohorts
-    resource :stats
+    
+  resource :employees
+  resource :students
+  resource :classes
+  resource :cohorts
+  resource :stats
 
 end
