@@ -8,7 +8,7 @@ To create a fully functional admin panel for a professional school to track it's
 
 # Built with
 * Ruby on Rails
-* Postrgresql
+* Postgresql
 * jQuery library
 * SASS/Materialize gem
 
