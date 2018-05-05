@@ -8,9 +8,16 @@ class StudentsController < ApplicationController
     end
 
     def new
+        @student = Student.new
     end
 
     def create
+        @student = Student.new(student_params)
+        if @student.save
+            redirect_to(student_path)
+        else
+            render('new')
+        end
     end
 
     def edit
@@ -23,5 +30,11 @@ class StudentsController < ApplicationController
     end
 
     def destroy
+    end
+    
+    private
+
+    def student_params
+        params.require(:student).permit(:first_name, :last_name, :cohort, :age, :education, :email, :phone_number)
     end
 end

@@ -8,9 +8,16 @@ class CoursesController < ApplicationController
     end
 
     def new
+        @course = Course.new
     end
 
     def create
+        @course = Course.new(course_params)
+        if @course.save
+            redirect_to(course_path)
+        else
+            render('new')
+        end
     end
 
     def edit
@@ -23,5 +30,11 @@ class CoursesController < ApplicationController
     end
 
     def destroy
+    end
+    
+    private
+
+    def course_params
+        params.require(:course).permit(:title, :description, :hours, :employee_id)
     end
 end
