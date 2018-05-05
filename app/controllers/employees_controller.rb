@@ -14,16 +14,23 @@ class EmployeesController < ApplicationController
     def create
         @employee = Employee.new(employee_params)
         if @employee.save
-            redirect_to(employee_path)
+            redirect_to(employees_path)
         else
             render('new')
         end
     end
 
     def edit
+        @employee = Employee.find(params[:id])
     end
 
     def update
+        @employee = Employee.find(params[:id])
+        if @employee.update_attributes(employee_params)
+            redirect_to(employee_path(@employee))
+        else
+            render('edit')
+        end
     end
 
     def delete

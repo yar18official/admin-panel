@@ -16,6 +16,11 @@
                 <td><%= course.description %></td>
                 <td><%= course.hours %></td>
                 <td><%= course.employee_id %></td>
+                <td class="actions">
+                    <%= link_to("Show", course_path(course), :class => 'action show') %>
+                    <%= link_to("Edit", edit_course_path(course), :class => 'action edit') %>
+                    <%= link_to("Delete", delete_course_path(course), :class => 'action delete') %>
+                </td>
             </tr>
         <% end %>
     </table>

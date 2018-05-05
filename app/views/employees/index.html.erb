@@ -26,6 +26,11 @@
                 <td><%= employee.education %></td>
                 <td><%= employee.email %></td>
                 <td><%= employee.phone_number %></td>
+                <td class="actions">
+                    <%= link_to("Show", employee_path(employee), :class => 'action show') %>
+                    <%= link_to("Edit", edit_employee_path(employee), :class => 'action edit') %>
+                    <%= link_to("Delete", delete_employee_path(employee), :class => 'action delete') %>
+                </td>
             </tr>
         <% end %>
     </table>

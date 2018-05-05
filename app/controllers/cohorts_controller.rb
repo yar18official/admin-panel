@@ -21,9 +21,16 @@ class CohortsController < ApplicationController
     end
 
     def edit
+        @cohort = Cohort.find(params[:id])
     end
 
     def update
+        @cohort = Cohort.find(params[:id])
+        if @cohort.update_attributes(cohort_params)
+            redirect_to(cohort_path(@cohort))
+        else
+            render('edit')
+        end
     end
 
     def delete
