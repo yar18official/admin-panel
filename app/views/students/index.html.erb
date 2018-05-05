@@ -1,2 +1,30 @@
 <h1>Students#index</h1>
 <p>Find me in app/views/students/index.html.erb</p>
+<div class="students index">
+    <h3>Students</h3>
+
+    <%= link_to("Add new student", '#', :class => 'action new') %>
+
+    <table class="listing" summary="Student list">
+        <tr class="header">
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Cohort Id</th>
+            <th>Age</th>
+            <th>Education Level</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+        </tr>
+        <% @students.each do |student| %>
+            <tr>
+                <td><%= student.last_name %></td>
+                <td><%= student.first_name %></td>
+                <td><%= student.cohort_id %></td>
+                <td><%= student.age %></td>
+                <td><%= student.education %></td>
+                <td><%= student.email %></td>
+                <td><%= student.phone_number %></td>
+            </tr>
+        <% end %>
+    </table>
+</div>

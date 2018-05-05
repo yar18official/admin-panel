@@ -1,2 +1,32 @@
 <h1>Employees#index</h1>
 <p>Find me in app/views/employees/index.html.erb</p>
+<div class="employees index">
+    <h3>Employees</h3>
+
+    <%= link_to("Add new employee", '#', :class => 'action new') %>
+
+    <table class="listing" summary="Employee list">
+        <tr class="header">
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Position</th>
+            <th>Salary</th>
+            <th>Age</th>
+            <th>Education Level</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+        </tr>
+        <% @employees.each do |employee| %>
+            <tr>
+                <td><%= employee.last_name %></td>
+                <td><%= employee.first_name %></td>
+                <td><%= employee.position %></td>
+                <td><%= employee.salary %></td>
+                <td><%= employee.age %></td>
+                <td><%= employee.education %></td>
+                <td><%= employee.email %></td>
+                <td><%= employee.phone_number %></td>
+            </tr>
+        <% end %>
+    </table>
+</div>
