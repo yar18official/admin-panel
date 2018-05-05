@@ -1,2 +1,36 @@
-<h1>Employees#show</h1>
-<p>Find me in app/views/employees/show.html.erb</p>
+<%= link_to("<< Back to List", employees_path, :class => 'back-link') %>
+
+<div class="employees show">
+    <h3>Show Employee</h3>
+
+    <table summary="Employee detail view">
+        <tr>
+            <th>Name</th>
+            <td><%= @employee.last_name %>, <%= @employee.first_name %></td>
+        </tr>
+        <tr>
+            <th>Position</th>
+            <td><%= @employee.position %></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><%= @employee.email %></td>
+        </tr>
+        <tr>
+            <th>Phone Number</th>
+            <td><%= @employee.phone_number %></td>
+        </tr>
+        <tr>
+            <th>Salary</th>
+            <td><%= @employee.salary %></td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td><%= @employee.age %></td>
+        </tr>
+        <tr>
+            <th>Education</th>
+            <td><%= @employee.education %></td>
+        </tr>
+    </table>
+</div>

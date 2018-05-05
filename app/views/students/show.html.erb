@@ -1,2 +1,32 @@
-<h1>Students#show</h1>
-<p>Find me in app/views/students/show.html.erb</p>
+<%= link_to("<< Back to List", students_path, :class => 'back-link') %>
+
+<div class="students show">
+    <h3>Show Student</h3>
+
+    <table summary="Student detail view">
+        <tr>
+            <th>Name</th>
+            <td><%= @student.last_name %>, <%= @student.first_name %></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><%= @student.email %></td>
+        </tr>
+        <tr>
+            <th>Phone Number</th>
+            <td><%= @student.phone_number %></td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td><%= @student.age %></td>
+        </tr>
+        <tr>
+            <th>Education</th>
+            <td><%= @student.education %></td>
+        </tr>
+        <tr>
+            <th>Cohort</th>
+            <td><%= @student.cohort_id %></td>
+        </tr>
+    </table>
+</div>
