@@ -34,9 +34,13 @@ class StudentsController < ApplicationController
     end
 
     def delete
+        @student = Student.find(params[:id])
     end
 
     def destroy
+        @student = Student.find(params[:id])
+        @student.destroy
+        redirect_to(student_path)
     end
     
     private
