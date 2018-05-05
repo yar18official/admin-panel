@@ -16,6 +16,11 @@
                 <td><%= cohort.start_date %></td>
                 <td><%= cohort.end_date %></td>
                 <td><%= cohort.employee_id %></td>
+                <td class="actions">
+                    <%= link_to("Show", cohort_path(cohort), :class => 'action show') %>
+                    <%= link_to("Edit", edit_cohort_path(cohort), :class => 'action edit') %>
+                    <%= link_to("Delete", delete_cohort_path(cohort), :class => 'action delete') %>
+                </td>
             </tr>
         <% end %>
     </table>
