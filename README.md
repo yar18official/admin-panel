@@ -1,25 +1,16 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 # admin-panel
+
+# Project Title
+Professional School Admin Panel
+
+# Motivation
+To create a fully functional admin panel for a professional school to track it's employees, students, cohorts, and courses.
+
+# Built with
+* Ruby on Rails
+* Postrgresql
+* jQuery library
+* SASS/Materialize gem
+
+# License
+MIT &copy; ddanskin
