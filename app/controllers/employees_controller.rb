@@ -14,6 +14,7 @@ class EmployeesController < ApplicationController
     def create
         @employee = Employee.new(employee_params)
         if @employee.save
+            flash[:notice] = "Employee '#{@employee.first_name} #{@employee.last_name}' created successfully"
             redirect_to(employees_path)
         else
             render('new')
@@ -27,6 +28,7 @@ class EmployeesController < ApplicationController
     def update
         @employee = Employee.find(params[:id])
         if @employee.update_attributes(employee_params)
+            flash[:notice] = "Employee '#{@employee.first_name} #{@employee.last_name}' updated successfully"
             redirect_to(employee_path(@employee))
         else
             render('edit')
@@ -40,6 +42,7 @@ class EmployeesController < ApplicationController
     def destroy
         @employee = Employee.find(params[:id])
         @employee.destroy
+        flash[:notice] = "Employee '#{@employee.first_name} #{@employee.last_name}' deleted successfully"
         redirect_to(employees_path)
     end
     

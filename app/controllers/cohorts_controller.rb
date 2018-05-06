@@ -14,6 +14,7 @@ class CohortsController < ApplicationController
     def create
         @cohort = Cohort.new(cohort_params)
         if @cohort.save
+            flash[:notice] = "Cohort '#{@cohort.title}' created successfully"
             redirect_to(cohorts_path)
         else
             render('new')
@@ -27,6 +28,7 @@ class CohortsController < ApplicationController
     def update
         @cohort = Cohort.find(params[:id])
         if @cohort.update_attributes(cohort_params)
+            flash[:notice] = "Cohort '#{@cohort.title}' updated successfully"
             redirect_to(cohort_path(@cohort))
         else
             render('edit')
@@ -40,6 +42,7 @@ class CohortsController < ApplicationController
     def destroy
         @cohort = Cohort.find(params[:id])
         @cohort.destroy
+        flash[:notice] = "Cohort '#{@cohort.title}' deleted successfully"
         redirect_to(cohorts_path)
     end
 
