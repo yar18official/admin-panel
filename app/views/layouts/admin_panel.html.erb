@@ -12,13 +12,27 @@
     </head>
     <body>
         <header>
+
+            <!-- header partial -->
             <%= render(:partial => 'header') %>
         </header>
         <main>
+            <!-- sidenav partial -->
             <%= render(:partial => 'navbar') %>
+
+            <!-- check for flash notice -->
+            <% if !flash[:notice].blank? %>
+                <div class="notice">
+                    <%= flash[:notice] %>
+                </div>
+            <% end %>
+
+            <!-- before yield -->
             <%= yield %>
+            <!-- after yield -->
         </main>
         <footer>
+            <!-- footer partial -->
             <%= render(:partial => 'footer') %>
         </footer>
     </body>

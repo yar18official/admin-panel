@@ -1,4 +1,7 @@
 class EmployeesController < ApplicationController
+    
+    layout 'admin_panel'
+    
     def index
         @employees = Employee.sorted
     end
