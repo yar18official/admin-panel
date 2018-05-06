@@ -2,36 +2,9 @@
 <div class="students edit">
     <h2>Edit Student</h2>
     <%= form_for(@student) do |f| %>
-        <table summary="Student form fields">
-            <tr>
-                <th>First Name</th>
-                <td><%= f.text_field(:first_name) %></td>
-            </tr>
-            <tr>
-                <th>Last Name</th>
-                <td><%= f.text_field(:last_name) %></td>
-            </tr>
-            <tr>
-                <th>Cohort Id</th>
-                <td><%= f.text_field(:cohort_id) %></td>
-            </tr>
-            <tr>
-                <th>Age</th>
-                <td><%= f.text_field(:age) %></td>
-            </tr>
-            <tr>
-                <th>Education level</th>
-                <td><%= f.text_field(:education) %></td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td><%= f.text_field(:email) %></td>
-            </tr>
-            <tr>
-                <th>Phone Number</th>
-                <td><%= f.text_field(:phone_number) %></td>
-            </tr>
-        </table>
+        
+        <%= render(:partial => 'form', :locals => {:f => f}) %>
+        
         <div class="form-buttons">
             <%= f.submit("Update Student") %>
         </div>

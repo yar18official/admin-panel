@@ -2,44 +2,9 @@
 <div class="employees edit">
     <h2>Edit Employee</h2>
     <%= form_for(@employee) do |f| %>
-        <table summary="Employee form fields">
-            <tr>
-                <th>First Name</th>
-                <td><%= f.text_field(:first_name) %></td>
-            </tr>
-            <tr>
-                <th>Last Name</th>
-                <td><%= f.text_field(:last_name) %></td>
-            </tr>
-            <tr>
-                <th>Position</th>
-                <td><%= f.text_field(:position) %></td>
-            </tr>
-            <tr>
-                <th>Salary</th>
-                <td><%= f.text_field(:salary) %></td>
-            </tr>
-            <tr>
-                <th>Age</th>
-                <td><%= f.text_field(:age) %></td>
-            </tr>
-            <tr>
-                <th>Education level</th>
-                <td><%= f.text_field(:education) %></td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td><%= f.text_field(:email) %></td>
-            </tr>
-            <tr>
-                <th>Phone Number</th>
-                <td><%= f.text_field(:phone_number) %></td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td><%= f.text_field(:password_digest) %></td>
-            </tr>
-        </table>
+        
+        <%= render(:partial => 'form', :locals => {:f => f}) %>
+        
         <div class="form-buttons">
             <%= f.submit("Update Employee") %>
         </div>

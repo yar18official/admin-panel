@@ -1,4 +1,6 @@
 class CohortsController < ApplicationController
+
+    layout 'admin_panel'
     def index
         @cohorts = Cohort.sorted
     end

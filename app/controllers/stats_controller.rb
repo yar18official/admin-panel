@@ -1,13 +1,7 @@
 class StatsController < ApplicationController
-  def index
-  end
-
-  def new
-  end
-
-  def edit
-  end
-
-  def show
-  end
+    
+    layout 'admin_panel'
+  
+    def index
+    end
 end
