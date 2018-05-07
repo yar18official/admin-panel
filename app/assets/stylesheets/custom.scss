@@ -1,10 +1,48 @@
-header, main, footer {
-      padding-left: 300px;
+@import "materialize";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+body {
+    background-color: #e8e8e8;
+    color: #f7f5e6;
+    
+    header, main, footer {
+        color: #333a56;
+        padding-left: 300px;
+        font-family: 'Open Sans', sans-serif;
+        
+        .page-footer {
+            background-color: #e8e8e8;
+        }
+        
+        .sidenav, .nav-wrapper {
+            background-color: #333a56;
+            color: #333a56;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        a {
+            color: #333a56;
+        }
+        
+        .sidenav a {
+            color: #f7f5e6;
+            background-color: #333a56;
+            width: 100%;
+            text-align: center;
+        }
+        
+        #dash_dashboard a {
+            color: #f7f5e6;
+            text-align: left;
+            font-family: 'Open Sans', sans-serif;
+        }
+    }
 }
 
 @media only screen and (max-width : 992px) {
-    header, main, footer {
-        padding-left: 0;
-    }
+     header, main, footer {
+         padding-left: 0;
+     }
 }
-          
+
