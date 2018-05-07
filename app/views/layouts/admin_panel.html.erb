@@ -14,11 +14,11 @@
         <header>
 
             <!-- header partial -->
-            <%= render(:partial => 'header') %>
+            <%= render(:partial => 'layouts/header') %>
         </header>
         <main>
             <!-- sidenav partial -->
-            <%= render(:partial => 'navbar') %>
+            <%= render(:partial => 'layouts/navbar') %>
 
             <!-- check for flash notice -->
             <% if !flash[:notice].blank? %>
@@ -33,7 +33,7 @@
         </main>
         <footer>
             <!-- footer partial -->
-            <%= render(:partial => 'footer') %>
+            <%= render(:partial => 'layouts/footer') %>
         </footer>
     </body>
 </html>
