@@ -19,8 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 # Use jQuery to support animations/design functionality
 gem 'jquery-rails'
 # Use Materialize for front-end design
-gem 'materialize-sass', '~> 1.0.0.beta'
-#Use material icons
+gem 'materialize-sass', '~> 1.0.0.rc1'
+# Use material icons
 gem 'material_icons' 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

@@ -13,11 +13,11 @@
     </tr>
     <tr>
         <th>Salary</th>
-        <td><%= f.text_field(:salary) %></td>
+        <td><%= f.number_field(:salary) %></td>
     </tr>
     <tr>
         <th>Age</th>
-        <td><%= f.text_field(:age) %></td>
+        <td><%= f.number_field(:age) %></td>
     </tr>
     <tr>
         <th>Education level</th>
@@ -33,6 +33,6 @@
     </tr>
     <tr>
         <th>Password</th>
-        <td><%= f.text_field(:password_digest) %></td>
+        <td><%= f.password_field(:password_digest) %></td>
     </tr>
 </table>
