@@ -2,6 +2,7 @@ class CohortsController < ApplicationController
 
     def index
         @cohorts = Cohort.sorted
+        @cohort = Cohort.new
     end
     
     def show

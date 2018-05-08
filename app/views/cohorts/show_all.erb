@@ -1,0 +1,29 @@
+
+<div class="cohorts index">
+    <h3>Cohorts</h3>
+
+    <%= link_to("Add new cohort", new_cohort_path, :class => 'action new') %>
+
+    <table class="listing" summary="Cohort list">
+        <tr class="header">
+            <th>Title</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Counselor Id</th>
+        </tr>
+        <% @cohorts.each do |cohort| %>
+            <tr>
+                <td><%= cohort.title %></td>
+                <td><%= cohort.start_date %></td>
+                <td><%= cohort.end_date %></td>
+                <td><%= cohort.employee_id %></td>
+                <td class="actions">
+                    <%= link_to("Show", cohort_path(cohort), :class => 'action show') %>
+                    <%= link_to("Edit", edit_cohort_path(cohort), :class => 'action edit') %>
+                    <%= link_to("Delete", delete_cohort_path(cohort), :class => 'action delete') %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+</div>
+
