@@ -1,9 +1,8 @@
 class CoursesController < ApplicationController
     
-    layout 'admin_panel'
-    
     def index
         @courses = Course.sorted
+        @course = Course.new
     end
     
     def show

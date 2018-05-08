@@ -1,14 +1,5 @@
-<div class="courses index">
-    <h3>Courses</h3>
 
-    <%= link_to("Add new course", new_course_path, :class => 'action new') %>
-    <div class="row">
-        <div class="col s12">
-            <p> Welcome to courses</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="courses directory col s12 l8">
+        <div class="courses directory">
             <table class="listing" summary="Course list">
                 <tr class="header">
                     <th>Title</th>
@@ -31,17 +22,3 @@
                 <% end %>
             </table>
         </div>
-        
-        <div class="courses new col s12 l4">
-            <h4>Create Course</h4>
-            <%= form_for(@course) do |f| %>
-        
-                <%= render(:partial => 'form', :locals => {:f => f}) %>
-        
-                <div class="form-buttons">
-                    <%= f.submit("Create Course") %>
-                </div>
-            <% end %>
-        </div>
-    </div>
-</div>
