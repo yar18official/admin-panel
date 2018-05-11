@@ -1,32 +1,26 @@
-<ul class="dropdown-content" id="user_dropdown">
-    <li><a class="grey-text" href="#!">Profile</a></li>
-    <li><a class="grey-text" href="#!">Logout</a></li>
-</ul>
-
 <nav role="navigation">
     <div class="nav-wrapper">
         <a data-target="slide-out" class="sidenav-trigger show-on-medium-and-down" href="#!">
             <i class='material-icons'>menu</i>
         </a>
-        <ul class="right hide-on-med-and-down">
+        <ul class="right">
+   <!--
             <li>
                 <a class='right dropdown-trigger' href='' data-target='user_dropdown'>
                     <i class='material-icons'>account_circle</i>
                 </a>
             </li>
+            -->
+            <% if user_signed_in?%>
+                <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+                <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                <li><%= link_to "Login", new_user_session_path %></li>
+            <% end%>
         </ul>
         <a href="#" data-target="slide-out" class="button-collapse">
             <i class="mdi-navigation-menu"></i>
         </a>
-    </div>
-</nav>
-
-<nav>
-    <div class="nav-wrapper">
-        <a style="margin-left: 20px;" class="breadcrumb" href="">Admin</a>
-        <a class="breadcrumb" href="">Index</a>
-
-        <div style="margin-right: 20px;" id="timestamp" class="right"></div>
     </div>
 </nav>
 

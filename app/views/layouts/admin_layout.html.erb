@@ -17,6 +17,9 @@
             <%= render(:partial => 'layouts/header') %>
         </header>
         <main>
+            <!-- sidenav partial -->
+            <%= render(:partial => 'layouts/navbar') %>
+
             <% if alert %><div class="alert alert-warning"><%= alert %></div><% end %>
             <% if notice %><div class="alert alert-info"><%= notice %></div><% end %>
             <!-- before yield -->
