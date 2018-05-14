@@ -2,9 +2,9 @@
 <div class="cohorts new">
     <h2>Create Cohort</h2>
     <%= form_for(@cohort) do |f| %>
-        
+
         <%= render(:partial => 'form', :locals => {:f => f}) %>
-        
+
         <div class="form-buttons">
             <%= f.submit("Create Cohort") %>
         </div>

@@ -1,7 +1,6 @@
 <%= link_to("<< Back to List", cohorts_path, :class => 'back-link') %>
 
 <div class="cohorts show">
-    <h3>Show Cohort</h3>
 
     <table summary="Cohort detail view">
         <tr>
@@ -17,8 +16,16 @@
             <td><%= @cohort.end_date %></td>
         </tr>
         <tr>
-            <th>Counselor Id</th>
-            <td><%= @cohort.employee_id %></td>
+            <th>Instructor Id</th>
+            <td><%= @cohort.instructor_id %></td>
         </tr>
     </table>
+
+    <h3>Roster</h3>
+    <% @roster.each do |student| %>
+        <% name ="#{student[:first_name]} #{student[:last_name]}" %>
+        <%= link_to(name, students_path(student), :class => 'action show') %>
+        <%= link_to("Delete", delete_student_path(student), :class => 'action delete') %>
+    <% end %>
+    <%= link_to("Add Student", new_student_path, :class => 'action new') %>
 </div>

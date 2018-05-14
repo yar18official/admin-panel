@@ -1,31 +1,43 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root "home#index"
 
-  get 'stats/index'
-  
-  resources :employees do
-      member do
-          get :delete
-      end
-  end
+    root 'dashboard#index'
 
-  resources :students do
-      member do
-          get :delete
-      end
-  end
+    devise_for :users, controllers: {
+        sessions: 'users/sessions',
+        passwords: 'users/passwords',
+        registrations: 'users/registrations'
+    }
 
-  resources :courses do
-      member do
-          get :delete
-      end
-  end
+    get 'dashboard/index'
+    get 'dashboard/home'
 
-  resources :cohorts do
-      member do
-          get :delete
-      end
-  end
+    resources :instructors do
+        member do
+            get :delete
+        end
+    end
 
+    resources :students do
+        member do
+            get :delete
+        end
+    end
+
+    resources :courses do
+        member do
+            get :delete
+        end
+    end
+
+    resources :course_registrations do
+        member do
+            get :delete
+        end
+    end
+
+    resources :cohorts do
+        member do
+            get :delete
+        end
+    end
 end

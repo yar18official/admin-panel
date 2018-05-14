@@ -1,30 +1,24 @@
-<table summary="Student form fields">
-    <tr>
-        <th>First Name</th>
-        <td><%= f.text_field(:first_name) %></td>
-    </tr>
-    <tr>
-        <th>Last Name</th>
-        <td><%= f.text_field(:last_name) %></td>
-    </tr>
-    <tr>
-        <th>Cohort Id</th>
-        <td><%= f.number_field(:cohort_id) %></td>
-    </tr>
-    <tr>
-        <th>Birthday</th>
-        <td><%= f.number_field(:birthday) %></td>
-    </tr>
-    <tr>
-        <th>Education level</th>
-        <td><%= f.text_field(:education) %></td>
-    </tr>
-    <tr>
-        <th>Email</th>
-        <td><%= f.text_field(:email) %></td>
-    </tr>
-    <tr>
-        <th>Phone Number</th>
-        <td><%= f.text_field(:phone_number) %></td>
-    </tr>
-</table>
+<div class="table-responsive">
+    <table summary="Student form fields" class="table table-striped jambo_table bulk_action">
+        <tr>
+            <th>First Name</th>
+            <td><%= f.text_field(:first_name) %></td>
+        </tr>
+        <tr>
+            <th>Last Name</th>
+            <td><%= f.text_field(:last_name) %></td>
+        </tr>
+        <tr>
+            <th>Cohort Id</th>
+            <td><%= f.number_field(:cohort_id) %></td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td><%= f.number_field(:age) %></td>
+        </tr>
+        <tr>
+            <th>Education level</th>
+            <td><%= f.select :education, ["High School", "Bachelor's", "Master's", "PHD"]%></td>
+        </tr>
+    </table>
+</div>

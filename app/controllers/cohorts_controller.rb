@@ -1,14 +1,15 @@
 class CohortsController < ApplicationController
-    
+    load_and_authorize_resource
     before_action :authenticate_user!
 
     def index
         @cohorts = Cohort.sorted
         @cohort = Cohort.new
     end
-    
+
     def show
         @cohort = Cohort.find(params[:id])
+        @roster = @cohort.students.sorted
     end
 
     def new
@@ -53,6 +54,6 @@ class CohortsController < ApplicationController
     private
 
     def cohort_params
-        params.require(:cohort).permit(:title, :start_date, :end_date, :employee_id)
+        params.require(:cohort).permit(:title, :start_date, :end_date, :instructor_id)
     end
 end

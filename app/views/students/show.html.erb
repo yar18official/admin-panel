@@ -9,14 +9,6 @@
             <td><%= @student.last_name %>, <%= @student.first_name %></td>
         </tr>
         <tr>
-            <th>Email</th>
-            <td><%= @student.email %></td>
-        </tr>
-        <tr>
-            <th>Phone Number</th>
-            <td><%= @student.phone_number %></td>
-        </tr>
-        <tr>
             <th>Age</th>
             <td><%= @student.age %></td>
         </tr>
@@ -29,4 +21,12 @@
             <td><%= @student.cohort_id %></td>
         </tr>
     </table>
+    <h3>Roster</h3>
+    <% if @course_list != nil %>
+        <% @course_list.each do |course| %>
+            <%= course[:title] %>
+            <% current_record = get_registration(course[:id], @student.id) %>
+            <%= link_to("Delete", delete_course_registration_path(current_record), :class => 'action delete') %>
+        <% end %>
+    <% end %>
 </div>

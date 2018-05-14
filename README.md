@@ -1,16 +1,24 @@
-# admin-panel
+# README
 
-# Project Title
-Professional School Admin Panel
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-# Motivation
-To create a fully functional admin panel for a professional school to track its employees, students, cohorts, and courses.
+Things you may want to cover:
 
-# Built with
-* Ruby on Rails
-* Postgresql
-* jQuery library
-* SASS/Materialize gem
+* Ruby version
 
-# License
-MIT &copy; ddanskin
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...

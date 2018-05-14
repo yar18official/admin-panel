@@ -2,12 +2,8 @@
 
 one:
   title: MyString
-  description: MyString
-  hours: 1
-  instructor_id: 1
+  total_hours: 1
 
 two:
   title: MyString
-  description: MyString
-  hours: 1
-  instructor_id: 1
+  total_hours: 1

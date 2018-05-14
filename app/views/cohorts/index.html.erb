@@ -1,63 +1,29 @@
-<div class="cohorts index">
-    <div class="row">
-        <div class="col s12">
-            <h3>Cohorts</h3>
-            <div class="row">
-                <div class="col s6">
-                    <p>total number cohorts</p>
-                    <p>cohort enrollment chart</p>
-                </div>
-                <div class="col s6">
-                    <p>recent cohort activity</p>
-                    <p>cohort added</p>
-                    <p>cohort deleted</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="cohorts directory col s12 l8">
-            <div class="row">
-                <form method="POST" action="/search">
-                <div class="input-field col s12">
-                    <input name="search" type="text" required>
-                </div>
-                <input type="submit" style="visibility: hidden;" />
-                </form>
-            </div>
-            <table class="listing" summary="Cohort list">
-                <tr class="header">
-                    <th>Title</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>Counselor Id</th>
-                </tr>
-                <% @cohorts.each do |cohort| %>
-                    <tr>
-                        <td><%= cohort.title %></td>
-                        <td><%= cohort.start_date %></td>
-                        <td><%= cohort.end_date %></td>
-                        <td><%= cohort.employee_id %></td>
-                        <td class="actions">
-                            <%= link_to("Show", cohort_path(cohort), :class => 'action show') %>
-                            <%= link_to("Edit", edit_cohort_path(cohort), :class => 'action edit') %>
-                            <%= link_to("Delete", delete_cohort_path(cohort), :class => 'action delete') %>
-                        </td>
-                    </tr>
-                <% end %>
-            </table>
-        </div>
+<div class="x_content">
+    <h3>Cohorts</h3>
 
-        <div class="cohorts new col s12 l4">
-            <h4>Create Cohort</h4>
-            <%= form_for(@cohort) do |f| %>
-        
-                <%= render(:partial => 'form', :locals => {:f => f}) %>
-        
-                <div class="form-buttons">
-                    <%= f.submit("Create Cohort") %>
-                </div>
-            <% end %>
-        </div>
-    </div>
+    <%= link_to("Add new cohort", new_cohort_path, :class => 'action new') %>
+
+    <table class="table table-striped jambo_table bulk_action" summary="Cohort list">
+        <tr class="headings">
+            <th>Title</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Instructor Id</th>
+        </tr>
+        <% @cohorts.each do |cohort| %>
+            <tr>
+                <td><%= cohort.title %></td>
+                <td><%= cohort.start_date %></td>
+                <td><%= cohort.end_date %></td>
+                <td><%= cohort.instructor_id %></td>
+                <td class="actions">
+                    <% if can? :manage, User %>
+                        <%= link_to("Show", cohort_path(cohort), :class => 'action show') %>
+                        <%= link_to("Edit", edit_cohort_path(cohort), :class => 'action edit') %>
+                        <%= link_to("Delete", delete_cohort_path(cohort), :class => 'action delete') %>
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
 </div>

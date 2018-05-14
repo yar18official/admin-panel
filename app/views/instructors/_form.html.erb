@@ -1,0 +1,28 @@
+<div class="table-responsive"
+    <table summary="Instructor form fields" class="table table-striped table-sm">
+        <tr>
+            <th>First Name</th>
+            <td><%= f.text_field(:first_name) %></td>
+        </tr>
+        <tr>
+            <th>Last Name</th>
+            <td><%= f.text_field(:last_name) %></td>
+        </tr>
+        <tr>
+            <th>Salary</th>
+            <td><%= f.number_field(:salary) %></td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td><%= f.number_field(:age) %></td>
+        </tr>
+        <tr>
+            <th>Education level</th>
+            <td><%= f.select :education, ["High School", "Bachelor's", "Master's", "PHD"]%></td>
+        </tr>
+        <tr>
+            <th>User Id</th>
+            <td><%= f.number_field(:user_id) %></td>
+        </tr>
+    </table>
+</div>
