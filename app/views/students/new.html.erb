@@ -1,7 +1,7 @@
 <%= link_to("<< Back to List", students_path, :class =>'back-link') %>
 <div class="students new">
     <h2>Create Student</h2>
-    <%= form_for(@student) do |f| %>
+    <%= bootstrap_form_for(@student) do |f| %>
 
         <%= render(:partial => 'form', :locals => {:f => f}) %>
 
