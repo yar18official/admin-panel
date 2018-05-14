@@ -1,52 +1,31 @@
-<ul id="slide-out" class="sidenav sidenav-fixed">
-    <li class="center no-padding">
-        <div style="height: 180px;">
-            <div class="row">
-                <i class="large material-icons">person</i>
-                <div class="brand-sidebar">
-                    <h4 class="logo-wrapper">
-                    </h4>
-                </div>
-            </div>
-        </div>
-    </li>
-    <ul>
-        <li id="dash_employees">
-            <div id="dash_employees_header">
-                <b>
-                    <%= link_to("Employees", {:controller => "employees", :action => "index"}, { :class=>"waves-effect waves-light" }) %>
-                </b>
-            </div>
-        </li>
-        <li id="dash_students">
-            <div id="dash_students_header">
-                <b>
-                    <%= link_to("Students", {:controller => "students", :action => "index"}, { :class=>"waves-effect waves-light" }) %>
-                </b>
-            </div>
-        </li>
-
-        <li id="dash_courses">
-            <div id="dash_courses_header">
-                <b>
-                    <%= link_to("Courses", {:controller => "courses", :action => "index"}, { :class=>"waves-effect waves-light" }) %>
-                </b>
-            </div>
-        </li>
-
-        <li id="dash_cohorts">
-            <div id="dash_cohorts_header">
-                <b>
-                    <%= link_to("Cohorts", {:controller => "cohorts", :action => "index"}, { :class=>"waves-effect waves-light" }) %>
-                </b>
-            </div>
-        </li>
-        <li id="dash_stats">
-            <div id="dash_stats_header">
-                <b>
-                    <%= link_to("Stats", {:controller => "stats", :action => "index"}, { :class=>"waves-effect waves-light" }) %>
-                </b>
-            </div>
-        </li>
+<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+  <div class="sidebar-sticky">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">
+          <span data-feather="home"></span>
+          Dashboard <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+          <%= link_to("Instructors", {:controller => "instructors", :action => "index"}, :class => "nav-link") %>
+      </li>
+      <li class="nav-item">
+          <%= link_to("Students", {:controller => "students", :action => "index"}, :class => "nav-link") %>
+      </li>
+      <li class="nav-item">
+          <%= link_to("Courses", {:controller => "courses", :action => "index"}, :class => "nav-link") %>
+      </li>
+      <li class="nav-item">
+        <%= link_to("Cohorts", {:controller => "cohorts", :action => "index"}, :class => "nav-link") %>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <span data-feather="bar-chart-2"></span>
+          Stats (Coming Soon)
+        </a>
+      </li>
     </ul>
-</ul>
+
+  </div>
+</nav>

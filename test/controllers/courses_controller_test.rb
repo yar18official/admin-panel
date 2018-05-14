@@ -6,6 +6,11 @@ class CoursesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get show" do
+    get courses_show_url
+    assert_response :success
+  end
+
   test "should get new" do
     get courses_new_url
     assert_response :success
@@ -16,8 +21,8 @@ class CoursesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get show" do
-    get courses_show_url
+  test "should get delete" do
+    get courses_delete_url
     assert_response :success
   end
 

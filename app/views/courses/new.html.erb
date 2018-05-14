@@ -1,10 +1,10 @@
 <%= link_to("<< Back to List", courses_path, :class =>'back-link') %>
 <div class="courses new">
     <h2>Create Course</h2>
-    <%= form_for(@course) do |f| %>
-        
+    <%= bootstrap_form_for(@course) do |f| %>
+
         <%= render(:partial => 'form', :locals => {:f => f}) %>
-        
+
         <div class="form-buttons">
             <%= f.submit("Create Course") %>
         </div>

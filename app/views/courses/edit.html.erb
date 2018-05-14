@@ -1,8 +1,8 @@
 <%= link_to("<< Back to List", courses_path, :class =>'back-link') %>
 <div class="courses edit">
     <h2>Edit Course</h2>
-    <%= form_for(@course) do |f| %>
-        
+    <%= bootstrap_form_for(@course) do |f| %>
+
         <%= render(:partial => 'form', :locals => {:f => f}) %>
 
         <div class="form-buttons">

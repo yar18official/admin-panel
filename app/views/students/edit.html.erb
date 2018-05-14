@@ -2,9 +2,9 @@
 <div class="students edit">
     <h2>Edit Student</h2>
     <%= form_for(@student) do |f| %>
-        
+
         <%= render(:partial => 'form', :locals => {:f => f}) %>
-        
+
         <div class="form-buttons">
             <%= f.submit("Update Student") %>
         </div>

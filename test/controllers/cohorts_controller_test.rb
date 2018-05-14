@@ -6,6 +6,11 @@ class CohortsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get show" do
+    get cohorts_show_url
+    assert_response :success
+  end
+
   test "should get new" do
     get cohorts_new_url
     assert_response :success
@@ -16,8 +21,8 @@ class CohortsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get show" do
-    get cohorts_show_url
+  test "should get delete" do
+    get cohorts_delete_url
     assert_response :success
   end
 

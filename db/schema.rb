@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_08_193806) do
+ActiveRecord::Schema.define(version: 2018_05_13_203109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,39 +19,34 @@ ActiveRecord::Schema.define(version: 2018_05_08_193806) do
     t.string "title"
     t.date "start_date"
     t.date "end_date"
-    t.integer "employee_id"
+    t.integer "instructor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "course_enrollments", force: :cascade do |t|
+  create_table "course_registrations", force: :cascade do |t|
     t.integer "course_id"
     t.integer "student_id"
-    t.integer "absent"
-    t.decimal "grade"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["course_id", "student_id"], name: "index_course_enrollments_on_course_id_and_student_id"
+    t.index ["course_id", "student_id"], name: "index_course_registrations_on_course_id_and_student_id"
   end
 
   create_table "courses", force: :cascade do |t|
     t.string "title"
-    t.string "description"
-    t.integer "hours"
-    t.integer "employee_id"
+    t.integer "total_hours"
+    t.integer "instructor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "employees", force: :cascade do |t|
+  create_table "instructors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.date "birthday"
+    t.integer "age"
     t.integer "salary"
-    t.string "position"
     t.string "education"
-    t.string "phone_number"
-    t.string "email"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -59,18 +54,19 @@ ActiveRecord::Schema.define(version: 2018_05_08_193806) do
   create_table "students", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.date "birthday"
+    t.integer "age"
     t.string "education"
-    t.string "email"
-    t.string "phone_number"
     t.integer "cohort_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.boolean "admin", default: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

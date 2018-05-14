@@ -1,14 +1,16 @@
 class StudentsController < ApplicationController
-    
+    load_and_authorize_resource
     before_action :authenticate_user!
-    
+
     def index
         @students = Student.sorted
         @student = Student.new
     end
-    
+
     def show
         @student = Student.find(params[:id])
+        @course_list = @student.courses.sorted
+        @course_registration = CourseRegistration.new
     end
 
     def new
@@ -49,10 +51,10 @@ class StudentsController < ApplicationController
         flash[:notice] = "Student '#{@student.first_name} #{@student.last_name}' deleted successfully"
         redirect_to(students_path)
     end
-    
+
     private
 
     def student_params
-        params.require(:student).permit(:first_name, :last_name, :cohort_id, :age, :education, :email, :phone_number)
+        params.require(:student).permit(:first_name, :last_name, :cohort_id, :age, :education)
     end
 end
