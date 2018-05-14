@@ -1,7 +1,7 @@
 <%= link_to("<< Back to List", courses_path, :class =>'back-link') %>
 <div class="course_registration delete">
     <h2>Remove Student</h2>
-    <%= form_for(@course_registration, :method => 'delete') do |f| %>
+    <%= bootstrap_form_for(@course_registration, :method => 'delete') do |f| %>
         <p>Are you sure you want to permanently remove this student?</p>
         <p class="reference-name"><%= f.object.student_id %></p>
 

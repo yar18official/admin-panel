@@ -1,7 +1,7 @@
 <%= link_to("<< Back to List", cohorts_path, :class =>'back-link') %>
 <div class="cohorts edit">
     <h2>Edit Cohort</h2>
-    <%= form_for(@cohort) do |f| %>
+    <%= bootstrap_form_for(@cohort) do |f| %>
 
         <%= render(:partial => 'form', :locals => {:f => f}) %>
 

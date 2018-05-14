@@ -73,6 +73,9 @@ body {
 /*
  * Navbar
  */
+.nav-item {
+    padding: .5rem 1rem;
+}
 
 .navbar-brand {
   padding-top: .75rem;

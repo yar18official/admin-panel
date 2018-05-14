@@ -1,7 +1,7 @@
 <%= link_to("<< Back to List", courses_path, :class =>'back-link') %>
 <div class="course_registration new">
     <h2>Create Course</h2>
-    <%= form_for(@course_registration) do |f| %>
+    <%= bootstrap_form_for(@course_registration) do |f| %>
 
         <%= render(:partial => 'form', :locals => {:f => f}) %>
 
