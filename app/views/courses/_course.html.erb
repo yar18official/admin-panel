@@ -1,0 +1,9 @@
+<tr id="course_<%= course.id %>">
+  <td><%= course.title %></td>
+  <td><%= course.total_hours %></td>
+  <td><%= course.instructor_id %></td>
+  <td>
+    <%= link_to 'Edit', edit_course_path(course), remote: true, :class => 'btn btn-sm btn-info' %>
+    <%= link_to 'Delete', course, remote: true, :method => :delete, data: {confirm: "Delete Course: #{course.title}"}, :class => 'btn btn-sm btn-danger' %>
+  </td>
+</tr>

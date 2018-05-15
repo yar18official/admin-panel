@@ -1,16 +1,19 @@
-<div class="table-responsive">
-    <table summary="Course form fields" class="table table-striped table-bordered">
-        <tr>
-            <th>Title</th>
-            <td><%= f.text_field(:title) %></td>
-        </tr>
-        <tr>
-            <th>Hours</th>
-            <td><%= f.text_field(:total_hours) %></td>
-        </tr>
-        <tr>
-            <th>Instructor Id</th>
-            <td><%= f.text_field(:instructor_id) %></td>
-        </tr>
-    </table>
-</div>
+<%= bootstrap_form_for(@course, remote: true, :html => { :role => "form" }) do |f| %>
+    <div id="error_explanation" class="bg-danger text-danger">
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <%= f.text_field(:title) %>
+            <%= f.text_field(:total_hours) %>
+            <%= f.text_field(:instructor_id) %>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <%= f.submit  @course.new_record? ? "Create Course" : "Update Course", :class => "btn btn-primary" %>
+            </div>
+        </div>
+    </div>
+<% end %>

@@ -16,12 +16,16 @@ gem 'uglifier', '>= 1.3.0'
 # Use jQuery to support animations/design functionality
 gem 'jquery-rails'
 # Use bootstrap theme
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.1.1'
 gem 'bootstrap_form'
+gem 'bootstrap-sass'
+gem 'popper_js', '~> 1.12.9'
 # Use Devise for user authentication
 gem 'devise'
 # Use CanCanCan to authorize resources
 gem 'cancancan'
+# Use rollbar for error tracking
+gem 'rollbar'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
