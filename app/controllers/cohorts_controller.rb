@@ -12,6 +12,7 @@ class CohortsController < ApplicationController
 
     def new
         @cohort = Cohort.new
+        @instructors = Instructor.all.sorted
     end
 
     def create

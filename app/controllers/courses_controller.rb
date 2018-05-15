@@ -8,10 +8,14 @@ class CoursesController < ApplicationController
     end
 
     def show
+        @roster = @course.students.sorted
+        @course_registration = CourseRegistration.new
+        @students = Student.all.sorted
     end
 
     def new
         @course = Course.new
+        @instructors = Instructor.all.sorted
     end
 
     def create

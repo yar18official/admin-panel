@@ -12,6 +12,7 @@ class StudentsController < ApplicationController
 
     def new
         @student = Student.new
+        @cohorts = Cohort.all
     end
 
     def create
