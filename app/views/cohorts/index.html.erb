@@ -1,29 +1,24 @@
 <div class="container">
-    <h3>Cohorts</h3>
+    <h2>Cohorts</h2>
+    <div class="well">
+        <%= link_to "New Cohort", new_cohort_path, remote: true, class: "btn btn-primary" %>
+    </div>
+    <div class="new-cohort"></div>
 
-    <%= link_to("Add new cohort", new_cohort_path, :class => 'action new') %>
-
-    <table class="table table-striped jambo_table bulk_action" summary="Cohort list">
-        <tr class="headings">
-            <th>Title</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th>Instructor Id</th>
-        </tr>
-        <% @cohorts.each do |cohort| %>
+    <table id class="table table-bordered table-striped">
+        <thead>
             <tr>
-                <td><%= cohort.title %></td>
-                <td><%= cohort.start_date %></td>
-                <td><%= cohort.end_date %></td>
-                <td><%= cohort.instructor_id %></td>
-                <td class="actions">
-                    <% if can? :manage, User %>
-                        <%= link_to("Show", cohort_path(cohort), :class => 'action show') %>
-                        <%= link_to("Edit", edit_cohort_path(cohort), :class => 'action edit') %>
-                        <%= link_to("Delete", delete_cohort_path(cohort), :class => 'action delete') %>
-                    <% end %>
-                </td>
+                <th>Title</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Instructor Id</th>
             </tr>
-        <% end %>
+        </thead>
+        <tbody id="cohorts">
+            <%= render @cohorts %>
+        </tbody>
     </table>
+
+    <%= render 'dialog' %>
+
 </div>

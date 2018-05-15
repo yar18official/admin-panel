@@ -1,30 +1,25 @@
-<div class="x_content">
-    <h3>Instructors</h3>
-    <%= link_to("Add new Instructor", new_instructor_path, :class => 'action new') %>
+<div class="container">
+    <h2>Instructors</h2>
+    <div class="well">
+        <%= link_to "New Instructor", new_instructor_path, remote: true, class: "btn btn-primary" %>
+    </div>
+    <div class="new-instructor"></div>
 
-    <table class="table table-striped jambo_table bulk_action" summary="Instructor list">
-        <tr class="headings">
-            <th>Last Name</th>
-            <th>First Name</th>
-            <th>Salary</th>
-            <th>Age</th>
-            <th>Education Level</th>
-        </tr>
-        <% @instructors.each do |instructor| %>
+    <table id class="table table-bordered table-striped">
+        <thead>
             <tr>
-                <td><%= instructor.last_name %></td>
-                <td><%= instructor.first_name %></td>
-                <td><%= instructor.salary %></td>
-                <td><%= instructor.age %></td>
-                <td><%= instructor.education %></td>
-                <td class="actions">
-                    <% if can? :manage, User %>
-                        <%= link_to("Show", instructor_path(instructor), :class => 'action show') %>
-                        <%= link_to("Edit", edit_instructor_path(instructor), :class => 'action edit') %>
-                        <%= link_to("Delete", delete_instructor_path(instructor), :class => 'action delete') %>
-                    <% end %>
-                </td>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Salary</th>
+                <th>Age</th>
+                <th>Education Level</th>
             </tr>
-        <% end %>
+        </thead>
+        <tbody id="instructors">
+            <%= render @instructors %>
+        </tbody>
     </table>
+
+    <%= render 'dialog' %>
+
 </div>

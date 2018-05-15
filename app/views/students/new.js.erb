@@ -1,0 +1,9 @@
+$('.modal-title').html("<i class='glyphicon glyphicon-plus'></i> Add New Student");
+
+$('.modal-body').html('<%= j render("form") %>');
+
+$('#dialog').modal("show");
+
+$('#dialog').on('shown.bs.modal', function () {
+	  $('.first_input').focus();
+  });

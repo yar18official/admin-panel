@@ -1,24 +1,33 @@
-<div class="table-responsive">
-    <table summary="Student form fields" class="table table-striped jambo_table bulk_action">
-        <tr>
-            <th>First Name</th>
-            <td><%= f.text_field(:first_name) %></td>
-        </tr>
-        <tr>
-            <th>Last Name</th>
-            <td><%= f.text_field(:last_name) %></td>
-        </tr>
-        <tr>
-            <th>Cohort Id</th>
-            <td><%= f.number_field(:cohort_id) %></td>
-        </tr>
-        <tr>
-            <th>Age</th>
-            <td><%= f.number_field(:age) %></td>
-        </tr>
-        <tr>
-            <th>Education level</th>
-            <td><%= f.select :education, ["High School", "Bachelor's", "Master's", "PHD"]%></td>
-        </tr>
-    </table>
-</div>
+
+<%= bootstrap_form_for(@student, remote: true, :html => { :role => "form" }) do |f| %>
+    <div id="error_explanation" class="bg-danger text-danger">
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <%= f.text_field :first_name, :class => "form-control first_input"  %>
+            </div>
+            <div class="form-group">
+                <%= f.text_field :last_name, :class => "form-control" %>
+            </div>
+            <div class="form-group">
+                <%= f.number_field :cohort_id, :class => "form-control" %>
+            </div>
+            <div class="form-group">
+                <%= f.number_field :age, :class => "form-control" %>
+            </div>
+            <div class="form-group">
+                <%= f.select :education, ["High School", "Bachelor's", "Master's", "PHD"], :class => "form-control" %>
+            </div>
+
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <%= f.submit  @student.new_record? ? "Create Student" : "Update Student", :class => "btn btn-primary" %>
+            </div>
+        </div>
+    </div>
+<% end %>

@@ -1,15 +1,13 @@
 class CohortsController < ApplicationController
     load_and_authorize_resource
     before_action :authenticate_user!
+    before_action :set_cohort, only: [:show, :edit, :update, :destroy]
 
     def index
         @cohorts = Cohort.sorted
-        @cohort = Cohort.new
     end
 
     def show
-        @cohort = Cohort.find(params[:id])
-        @roster = @cohort.students.sorted
     end
 
     def new
@@ -17,43 +15,26 @@ class CohortsController < ApplicationController
     end
 
     def create
-        @cohort = Cohort.new(cohort_params)
-        if @cohort.save
-            flash[:notice] = "Cohort '#{@cohort.title}' created successfully"
-            redirect_to(cohorts_path)
-        else
-            render('new')
-        end
+        @cohort = Cohort.create(cohort_params)
     end
 
     def edit
-        @cohort = Cohort.find(params[:id])
     end
 
     def update
-        @cohort = Cohort.find(params[:id])
-        if @cohort.update_attributes(cohort_params)
-            flash[:notice] = "Cohort '#{@cohort.title}' updated successfully"
-            redirect_to(cohort_path(@cohort))
-        else
-            render('edit')
-        end
-    end
-
-    def delete
-        @cohort = Cohort.find(params[:id])
+        @cohort.update(cohort_params)
     end
 
     def destroy
-        @cohort = Cohort.find(params[:id])
         @cohort.destroy
-        flash[:notice] = "Cohort '#{@cohort.title}' deleted successfully"
-        redirect_to(cohorts_path)
     end
 
     private
+        def set_cohort
+            @cohort = Cohort.find(params[:id])
+        end
 
-    def cohort_params
-        params.require(:cohort).permit(:title, :start_date, :end_date, :instructor_id)
-    end
+        def cohort_params
+            params.require(:cohort).permit(:title, :start_date, :end_date, :instructor_id)
+        end
 end

@@ -1,0 +1,11 @@
+<tr id="instructor_<%= instructor.id %>">
+  <td><%= instructor.first_name %></td>
+  <td><%= instructor.last_name %></td>
+   <td><%= instructor.salary %></td>
+  <td><%= instructor.age %></td>
+  <td><%= instructor.education %></td>
+  <td>
+    <%= link_to 'Edit', edit_instructor_path(instructor), remote: true, :class => 'btn btn-sm btn-info' %>
+    <%= link_to 'Delete', instructor, remote: true, :method => :delete, data: {confirm: "Delete Instructor: #{instructor.first_name} #{instructor.last_name}"}, :class => 'btn btn-sm btn-danger' %>
+  </td>
+</tr>

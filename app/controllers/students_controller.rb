@@ -1,16 +1,13 @@
 class StudentsController < ApplicationController
     load_and_authorize_resource
     before_action :authenticate_user!
+    before_action :set_student, only: [:show, :edit, :update, :destroy]
 
     def index
         @students = Student.sorted
-        @student = Student.new
     end
 
     def show
-        @student = Student.find(params[:id])
-        @course_list = @student.courses.sorted
-        @course_registration = CourseRegistration.new
     end
 
     def new
@@ -18,43 +15,26 @@ class StudentsController < ApplicationController
     end
 
     def create
-        @student = Student.new(student_params)
-        if @student.save
-            flash[:notice] = "Student '#{@student.first_name} #{@student.last_name}' created successfully"
-            redirect_to(students_path)
-        else
-            render('new')
-        end
+        @student = Student.create(student_params)
     end
 
     def edit
-        @student = Student.find(params[:id])
     end
 
     def update
-        @student = Student.find(params[:id])
-        if @student.update_attributes(student_params)
-            flash[:notice] = "Student '#{@student.first_name} #{@student.last_name}' updated successfully"
-            redirect_to(students_path(@student))
-        else
-            render('edit')
-        end
-    end
-
-    def delete
-        @student = Student.find(params[:id])
+        @student.update(student_params)
     end
 
     def destroy
-        @student = Student.find(params[:id])
         @student.destroy
-        flash[:notice] = "Student '#{@student.first_name} #{@student.last_name}' deleted successfully"
-        redirect_to(students_path)
     end
 
     private
+        def set_student
+            @student = Student.find(params[:id])
+        end
 
-    def student_params
-        params.require(:student).permit(:first_name, :last_name, :cohort_id, :age, :education)
-    end
+        def student_params
+            params.require(:student).permit(:first_name, :last_name, :cohort_id, :age, :education)
+        end
 end
