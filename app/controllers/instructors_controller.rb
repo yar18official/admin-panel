@@ -12,6 +12,7 @@ class InstructorsController < ApplicationController
 
     def new
         @instructor = Instructor.new
+        @users = User.where(admin: false)
     end
 
     def create

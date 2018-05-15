@@ -5,7 +5,7 @@ class CourseRegistrationsController < ApplicationController
     end
 
     def create
-        @course_registration = CourseRegistration.new(course_registration_params)
+        @course_registration = CourseRegistration.create(course_registration_params)
         if @course_registration.save
             @student = Student.find(@course_registration[:student_id])
             flash[:notice] = "#{@student.first_name} #{@student.last_name} was added to course"
