@@ -1,10 +1,13 @@
 <tr id="cohort_<%= cohort.id %>">
-  <td><%= cohort.title %></td>
-  <td><%= cohort.start_date %></td>
-  <td><%= cohort.end_date %></td>
-  <td><%= cohort.instructor_id %></td>
-  <td>
-    <%= link_to 'Edit', edit_cohort_path(cohort), remote: true, :class => 'btn btn-sm btn-info' %>
-    <%= link_to 'Delete', cohort, remote: true, :method => :delete, data: {confirm: "Delete Cohort: #{cohort.title}"}, :class => 'btn btn-sm btn-danger' %>
+    <td><%= cohort.title %></td>
+    <td><%= cohort.start_date %></td>
+    <td><%= cohort.end_date %></td>
+    <td><%= cohort.instructor_id %></td>
+    <td>
+        <%= link_to 'Roster', cohort_path(cohort), :class => 'btn btn-sm btn-info' %>
+        <% if can? :manage, User %>
+            <%= link_to 'Edit', edit_cohort_path(cohort), remote: true, :class => 'btn btn-sm btn-info' %>
+            <%= link_to 'Delete', cohort, remote: true, :method => :delete, data: {confirm: "Delete Cohort: #{cohort.title}"}, :class => 'btn btn-sm btn-danger' %>
+        <% end %>
   </td>
 </tr>
