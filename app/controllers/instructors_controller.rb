@@ -20,6 +20,7 @@ class InstructorsController < ApplicationController
     end
 
     def edit
+        @users = User.where(admin: false)
     end
 
     def update

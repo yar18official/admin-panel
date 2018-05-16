@@ -1,24 +1,22 @@
-<div class="container">
+<div class="jumbotron">
     <h2>Cohorts</h2>
-    <div class="well">
-        <%= link_to "New Cohort", new_cohort_path, remote: true, class: "btn btn-primary" %>
-    </div>
-    <div class="new-cohort"></div>
-
-    <table id class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Instructor Id</th>
-            </tr>
-        </thead>
-        <tbody id="cohorts">
-            <%= render @cohorts %>
-        </tbody>
-    </table>
-
-    <%= render 'dialog' %>
-
 </div>
+<div class="well">
+    <%= link_to "New Cohort", new_cohort_path, remote: true, class: "btn btn-primary" %>
+</div>
+<div class="new-cohort"></div>
+<table id class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Instructor Id</th>
+        </tr>
+    </thead>
+    <tbody id="cohorts">
+        <%= render @cohorts %>
+    </tbody>
+</table>
+
+<%= render 'dialog' %>
