@@ -1,4 +1,13 @@
 <div class="jumbotron">
-    <h3>Welcome to the School of Rock</h3>
-    <h3>Register or Login to get Rockin!</h3>
+    <% if user_signed_in? %>
+        <div class="welcome">
+            <h5>Welcome <%= current_user.first_name %> <%= current_user.last_name %></h5>
+        </div>
+        <div>
+            Stats Coming soon!
+        </div>
+    <% else %>
+        <h3>Welcome to the School of Rock</h3>
+        <h3>Register or Login to get Rockin!</h3>
+    <% end %>
 </div>

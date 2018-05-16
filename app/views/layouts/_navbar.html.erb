@@ -1,6 +1,9 @@
 <nav class="col-md-2 d-none d-md-block bg-light sidebar">
   <div class="sidebar-sticky">
     <ul class="nav flex-column">
+    <li class="nav-item">
+        <span clas="nav-link">Signed in as: <%= current_user.first_name %> <%= current_user.last_name %></span>
+    </li>
       <li class="nav-item">
           <%=link_to "Dashboard", dashboard_home_path, :class =>"nav-link active" %>
       </li>
