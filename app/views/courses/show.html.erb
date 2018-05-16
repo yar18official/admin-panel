@@ -1,26 +1,26 @@
-<div class="container">
-    <table summary="Course roster view" class="table table-bordered table-striped">
-        <h3><%= @course.title %> Roster</h3>
-        <tr class="headings">
-            <th>Students</th>
-        </tr>
-        <% if @roster != nil %>
-            <% @roster.each do |student| %>
-                <tr>
-                    <% name = "#{student[:first_name]} #{student[:last_name]}" %>
-                    <td><%= name %></td>
-                    <% current_record = get_registration(@course.id, student[:id]) %>
-                    <td><%= link_to 'X', delete_course_registration_path(current_record), remote: true, :method => :delete, data: {confirm: "Delete Student: #{name}"}, :class => 'btn btn-sm btn-danger' %></td>
-                </tr>
-            <% end %>
-        <% end %>
-    </table>
-    <h6>Add Student</h6>
-    <%= bootstrap_form_for(@course_registration) do |f| %>
-        <%= f.collection_select :student_id, @students, :id, :first_name, include_blank: true %>
-        <%= f.hidden_field :course_id, :value => @course.id %>
-        <div class="form-buttons">
-            <%= f.submit("Enroll Student") %>
-        </div>
-        <% end %>
+<div class="jumbotron">
+    <h3><%= @course.title %> Roster</h3>
 </div>
+<table summary="Course roster view" class="table table-bordered table-striped">
+    <tr class="headings">
+        <th>Students</th>
+    </tr>
+    <% if @roster != nil %>
+        <% @roster.each do |student| %>
+            <tr>
+                <% name = "#{student[:first_name]} #{student[:last_name]}" %>
+                <td><%= name %></td>
+                <% current_record = get_registration(@course.id, student[:id]) %>
+                <!--<td>#<%= link_to 'X', delete_course_registration_path(current_record), remote: true, :method => :delete, data: {confirm: "Delete Student: #{name}"}, :class => 'btn btn-sm btn-danger' %></td>
+            --></tr>
+        <% end %>
+    <% end %>
+</table>
+<h6>Add Student</h6>
+<%= bootstrap_form_for(@course_registration) do |f| %>
+    <%= f.collection_select :student_id, @students, :id, :first_name, include_blank: true %>
+    <%= f.hidden_field :course_id, :value => @course.id %>
+    <div class="form-buttons">
+        <%= f.submit "Enroll Student", :class => 'btn btn-sm btn-primary' %>
+    </div>
+<% end %>

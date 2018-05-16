@@ -23,6 +23,7 @@ class CoursesController < ApplicationController
     end
 
     def edit
+        @instructors = Instructor.all.sorted
     end
 
     def update

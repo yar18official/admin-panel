@@ -6,7 +6,7 @@
     <td><%= student.education %></td>
     <td>
         <% if can? :manage, User %>
-            <%= link_to 'Edit', edit_student_path(student), remote: true, :class => 'btn btn-sm btn-info' %>
+            <%= link_to 'Edit', edit_student_path(student), remote: true, :class => 'btn btn-sm btn-secondary' %>
             <%= link_to 'Delete', student, remote: true, :method => :delete, data: {confirm: "Delete Student: #{student.first_name} #{student.last_name}"}, :class => 'btn btn-sm btn-danger' %>
         <% end %>
     </td>
