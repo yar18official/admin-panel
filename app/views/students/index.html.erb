@@ -1,24 +1,26 @@
 <div class="jumbotron">
-  <h2>Students</h2>
+    <h2>Students</h2>
 </div>
-  <div class="well">
-    <%= link_to "New Student", new_student_path, remote: true, class: "btn btn-primary" %>
-  </div>
-  <div class="new-student"></div>
+<div class="well">
+    <% if can? :manage, User %>
+        <%= link_to "New Student", new_student_path, remote: true, class: "btn btn-primary" %>
+    <% end %>
+</div>
+<div class="new-student"></div>
 
-  <table id class="table table-bordered table-striped">
+<table id class="table table-bordered table-striped">
     <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Cohort Id</th>
-      <th>Age</th>
-      <th>Education Level</th>
-    </tr>
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Cohort Id</th>
+            <th>Age</th>
+            <th>Education Level</th>
+        </tr>
     </thead>
     <tbody id="students">
-    <%= render @students %>
+        <%= render @students %>
     </tbody>
-  </table>
+</table>
 
-  <%= render 'dialog' %>
+<%= render 'dialog' %>
