@@ -7,7 +7,7 @@
         <div class="col-sm-6">
             <%= f.text_field(:title) %>
             <%= f.text_field(:total_hours) %>
-            <%= f.collection_select :instructor_id, @instructors, :id, :first_name, include_blank: true %>
+            <%= f.collection_select :instructor_id, @instructors, :id, :full_name, prompt: true %>
         </div>
 
         <div class="col-sm-6">

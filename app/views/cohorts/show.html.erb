@@ -1,6 +1,7 @@
 <div class="jumbotron">
     <h3><%= @cohort.title %> Roster</h3>
 </div>
+<!--
 <table summary="Cohort roster view" class="table table-bordered table-striped">
     <tr class="headings">
         <th>Students</th>
@@ -10,11 +11,23 @@
             <tr>
                 <% name = "#{student[:first_name]} #{student[:last_name]}" %>
                 <td><%= name %></td>
-                <!--<td>#<%= link_to 'X', student, remote: true, :method => :delete, data: {confirm: "Delete Student: #{student.first_name} #{student.last_name}"}, :class => 'btn btn-sm btn-danger' %></td>
-            --></tr>
+                <td>#<%= link_to 'X', student, remote: true, :method => :delete, data: {confirm: "Delete Student: #{student.first_name} #{student.last_name}"}, :class => 'btn btn-sm btn-danger' %></td>
+            </tr>
         <% end %>
     <% end %>
+</table>-->
+<table id class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+        </tr>
+    </thead>
+    <tbody id="students">
+        <%= render @roster %>
+    </tbody>
 </table>
+
 <div class="well">
     <%= link_to "New Student", new_student_path, remote: true, class: "btn btn-primary" %>
 </div>
