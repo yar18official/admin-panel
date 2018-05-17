@@ -1,4 +1,4 @@
-# Professional School Admin Panel
+# [Professional School Admin Panel](https://schooladminpanel.herokuapp.com/)
 A fully functional admin panel for a professional school to track its employees, students, cohorts, and courses.
 
 # To Use
