@@ -1,10 +1,11 @@
 class DashboardController < ApplicationController
-    skip_before_action  :authenticate_user!, :only => [:index]
-
-    def index
-    end
+    before_action :authenticate_user!
 
     def home
+    end
+
+    def index
+        @activities = PublicActivity::Activity.all
     end
 
 end
