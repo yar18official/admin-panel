@@ -14,19 +14,15 @@
             <% end %>
             <% if can? :manage, User %>
         </div>
-        <div class="quick_add col-sm">
-            <h4>Quick Add</h4>
-            <div class="well">
-                <%= link_to "New Instructor", new_instructor_path, remote: true, class: "btn btn-primary" %>
-            </div>
-            <div class="well">
-                <%= link_to "New Student", new_student_path, remote: true, class: "btn btn-primary" %>
-            </div>
-            <div class="well">
-                <%= link_to "New Course", new_course_path, remote: true, class: "btn btn-primary" %>
-            </div>
-            <div class="well">
-                <%= link_to "New Cohort", new_cohort_path, remote: true, class: "btn btn-primary" %>
+        <div class="quick_add col-sm text-right">
+            <h4 class="text-center">Quick Add</h4>
+            <div class="well text-center">
+                <ul class="nav">
+                    <li class="nav-item"><%= link_to "New Instructor", new_instructor_path, remote: true, class: "nav-link" %></li>
+                    <li class="nav-item"><%= link_to "New Student", new_student_path, remote: true, class: "nav-link" %></li>
+                    <li class="nav-item"><%= link_to "New Course", new_course_path, remote: true, class: "nav-link" %></li>
+                    <li class="nav-item"><%= link_to "New Cohort", new_cohort_path, remote: true, class: "nav-link" %></li>
+                </ul>
             </div>
         </div>
         <% end %>
