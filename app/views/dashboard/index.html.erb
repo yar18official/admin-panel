@@ -1,7 +1,7 @@
 <div class="jumbotron">
     <% if user_signed_in? %>
         <div class="welcome">
-            <h5>Welcome <%= current_user.first_name %> <%= current_user.last_name %></h5>
+            <h5>Welcome<%= current_user.full_name %></h5>
         </div>
         <div>
             Stats Coming soon!
@@ -13,5 +13,5 @@
 </div>
 <div class="activity_feed">
     <h4>Recent Activity</h4>
-    
+
 </div>
