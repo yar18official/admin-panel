@@ -1,6 +1,9 @@
 # Professional School Admin Panel
 A fully functional admin panel for a professional school to track its employees, students, cohorts, and courses.
 
+# To Use
+Login with email: johndoe@email.com password: test123
+
 # Built with 
 * Ruby on Rails
 * PostgreSQL
