@@ -18,7 +18,7 @@
 </table>
 <h6>Add Student</h6>
 <%= bootstrap_form_for(@course_registration) do |f| %>
-    <%= f.collection_select :student_id, @students, :id, :first_name, include_blank: true %>
+    <%= f.collection_select :student_id, @students, :id, :full_name, prompt: true %>
     <%= f.hidden_field :course_id, :value => @course.id %>
     <div class="form-buttons">
         <%= f.submit "Enroll Student", :class => 'btn btn-sm btn-primary' %>

@@ -10,7 +10,7 @@ class CoursesController < ApplicationController
     def show
         @roster = @course.students.sorted
         @course_registration = CourseRegistration.new
-        @students = Student.all.sorted
+        @students = Student.joins('LEFT OUTER JOIN course_registrations ON course_registrations.student_id = students.id').where.not(id: CourseRegistration.where(course_id: @course.id).pluck(:student_id)).distinct
     end
 
     def new

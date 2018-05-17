@@ -6,4 +6,8 @@ class Instructor < ApplicationRecord
     scope :sorted, lambda { order("last_name ASC") }
     scope :newest_first, lambda { order("created_at DESC") }
     scope :search, lambda { |query| where(["name LIKE ?", "%#{query}%"]) }
+
+    def full_name
+        "#{first_name} #{last_name}"
+    end
 end

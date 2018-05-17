@@ -8,7 +8,7 @@
         <div class="col-sm-6">
                 <%= f.text_field :first_name %>
                 <%= f.text_field :last_name %>
-                <%= f.collection_select :cohort_id, @cohorts, :id, :title, include_blank: true %>
+                <%= f.collection_select :cohort_id, @cohorts, :id, :title, prompt: true %>
                 <%= f.number_field :age, min: 0, max: 150 %>
                 <%= f.select :education, ["High School", "Bachelor's", "Master's", "PHD"] %>
         </div>
