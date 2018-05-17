@@ -1,4 +1,6 @@
 class Student < ApplicationRecord
+    include PublicActivity::Model
+    tracked owner: Proc.new{ |controller, model| controller.current_user }
     belongs_to :cohort
     has_many :course_registrations
     has_many :courses, :through => :course_registrations

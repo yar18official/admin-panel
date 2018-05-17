@@ -11,7 +11,7 @@ class CohortsController < ApplicationController
         @roster = @cohort.students.sorted
         @course_registration = CourseRegistration.new
         @students = Student.all.sorted
-        
+
     end
 
     def new

@@ -1,8 +1,42 @@
 <div class="jumbotron">
-    <div class="welcome">
-        <h5>Welcome <%= current_user.first_name %> <%= current_user.last_name %></h5>
+    <div class="row">
+        <div class="quick_facts col-md-8">
+            <% if user_signed_in? %>
+            <div class="welcome">
+                <h5>Welcome, <%= current_user.full_name %>!</h5>
+            </div>
+            <div class="quick_stats">
+                Stats Coming soon!
+            </div>
+            <% else %>
+            <h3>Welcome to the School of Rock</h3>
+            <h3>Register or Login to get Rockin!</h3>
+            <% end %>
+            <% if can? :manage, User %>
+        </div>
+        <div class="quick_add col-sm">
+            <h4>Quick Add</h4>
+            <div class="well">
+                <%= link_to "New Instructor", new_instructor_path, remote: true, class: "btn btn-primary" %>
+            </div>
+            <div class="well">
+                <%= link_to "New Student", new_student_path, remote: true, class: "btn btn-primary" %>
+            </div>
+            <div class="well">
+                <%= link_to "New Course", new_course_path, remote: true, class: "btn btn-primary" %>
+            </div>
+            <div class="well">
+                <%= link_to "New Cohort", new_cohort_path, remote: true, class: "btn btn-primary" %>
+            </div>
+        </div>
+        <% end %>
     </div>
-    <div>
-        Stats Coming soon!
+</div>
+<div class="row">
+    <div class="col-md-7">
+        <h5>Recent Activity</h5>
+    </div>
+    <div class="col-md-5">
+        <h5>More Info</h5>
     </div>
 </div>

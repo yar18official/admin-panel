@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'activities/index'
     root 'dashboard#index'
 
     devise_for :users, controllers: {
