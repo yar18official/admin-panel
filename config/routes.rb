@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'activities/index'
+    get 'activities/index'
     root 'dashboard#index'
 
     devise_for :users, controllers: {
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
     get 'dashboard/index'
     get 'dashboard/home'
+    get 'statistics/index'
 
     resources :instructors do
         member do
