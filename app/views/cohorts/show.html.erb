@@ -27,8 +27,9 @@
         <%= render @roster %>
     </tbody>
 </table>
-
-<div class="well">
-    <%= link_to "New Student", new_student_path, remote: true, class: "btn btn-primary" %>
-</div>
+<% if can? :manage, User %>
+    <div class="well">
+        <%= link_to "New Student", new_student_path, remote: true, class: "btn btn-primary" %>
+    </div>
+<% end %>
 <%= render 'shared/dialog' %>

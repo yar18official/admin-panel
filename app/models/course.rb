@@ -3,7 +3,7 @@ class Course < ApplicationRecord
     tracked owner: Proc.new{ |controller, model| controller.current_user }
 
     belongs_to :instructor
-    has_many :course_registrations
+    has_many :course_registrations, dependent: :destroy
     has_many :students, :through => :course_registrations
 
     scope :sorted, lambda { order("title ASC") }
