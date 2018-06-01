@@ -7,7 +7,7 @@
         <%= link_to 'Roster', course_path(course), :class => 'btn btn-sm btn-info' %>
         <% if can? :manage, User %>
             <%= link_to 'Edit', edit_course_path(course), remote: true, :class => 'btn btn-sm btn-secondary' %>
-            <%= link_to 'X', course, remote: true, :method => :delete, data: {confirm: "Delete Course: #{course.title}"}, :class => 'btn btn-sm btn-danger' %>
+            <%= link_to 'Delete', course, remote: true, :method => :delete, data: {confirm: "Delete Course: #{course.title}"}, :class => 'btn btn-sm btn-danger' %>
         <% end %>
   </td>
 </tr>
