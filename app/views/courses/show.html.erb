@@ -8,7 +8,7 @@
             <th>Last name</th>
         </tr>
     </thead>
-    <tbody id="course_roster">
+    <tbody id="students">
         <%= render @roster %>
     </tbody>
 </table>
@@ -19,6 +19,14 @@
         <%= f.hidden_field :course_id, :value => @course.id %>
         <div class="form-buttons">
             <%= f.submit "Enroll Student", :class => 'btn btn-sm btn-primary' %>
+        </div>
+    <% end %>
+    <h6>Remove Student</h6>
+    <%= bootstrap_form_for(@course_registration, :method => 'delete') do |f| %>
+        <%= f.collection_select :student_id, @roster, :id, :full_name, prompt: true %>
+        <%= f.hidden_field :course_id, :value => @course.id %>
+        <div class="form-buttons">
+            <%= f.submit "Remove Student", :class => 'btn btn-sm btn-danger' %>
         </div>
     <% end %>
 <% end %>
