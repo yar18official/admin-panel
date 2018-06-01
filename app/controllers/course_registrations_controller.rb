@@ -9,22 +9,20 @@ class CourseRegistrationsController < ApplicationController
 
     def create
         @course_registration = CourseRegistration.create(course_registration_params)
-        if @course_registration.save
-            @student = Student.find(@course_registration[:student_id])
-            flash[:notice] = "#{@student.first_name} #{@student.last_name} was added to course"
-        end
+        @student = Student.find(@course_registration[:student_id])
+        flash[:notice] = "#{@student.full_name} was added to course"
     end
 
     def show
     end
-    
+
     def delete
     end
 
     def destroy
         @course_registration.destroy
         @student = Student.find(@course_registration[:student_id])
-        flash[:notice] = "'#{@student.first_name} #{@student.last_name}' was removed"
+        flash[:notice] = "'#{@student.full_name}' was removed"
     end
 
     private
