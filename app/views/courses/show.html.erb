@@ -1,6 +1,20 @@
 <div class="jumbotron">
     <h3><%= @course.title %> Roster</h3>
 </div>
+<% if can? :manage, User %>
+<div class="row">
+    <div class="col s3">
+        <h6>Add Student</h6>
+        <%= bootstrap_form_for(@course_registration, remote: true) do |f| %>
+            <%= f.collection_select :student_id, @students, :id, :full_name, prompt: true %>
+            <%= f.hidden_field :course_id, :value => @course.id %>
+            <div class="form-buttons">
+                <%= f.submit "Enroll Student", :class => 'btn btn-sm btn-primary' %>
+            </div>
+        <% end %>
+    </div>
+</div>
+<% end %>
 <table id class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -8,25 +22,7 @@
             <th>Last name</th>
         </tr>
     </thead>
-    <tbody id="students">
+    <tbody id="course_registrations">
         <%= render @roster %>
     </tbody>
 </table>
-<% if can? :manage, User %>
-    <h6>Add Student</h6>
-    <%= bootstrap_form_for(@course_registration) do |f| %>
-        <%= f.collection_select :student_id, @students, :id, :full_name, prompt: true %>
-        <%= f.hidden_field :course_id, :value => @course.id %>
-        <div class="form-buttons">
-            <%= f.submit "Enroll Student", :class => 'btn btn-sm btn-primary' %>
-        </div>
-    <% end %>
-    <h6>Remove Student</h6>
-    <%= bootstrap_form_for(@course_registration, :method => 'delete') do |f| %>
-        <%= f.collection_select :student_id, @roster, :id, :full_name, prompt: true %>
-        <%= f.hidden_field :course_id, :value => @course.id %>
-        <div class="form-buttons">
-            <%= f.submit "Remove Student", :class => 'btn btn-sm btn-danger' %>
-        </div>
-    <% end %>
-<% end %>
