@@ -1,3 +1,4 @@
+
 class CreateStudents < ActiveRecord::Migration[5.2]
   def change
     create_table :students do |t|
@@ -5,7 +6,7 @@ class CreateStudents < ActiveRecord::Migration[5.2]
       t.string :last_name
       t.integer :age
       t.string :education
-      t.references :cohort_id, foreign_key: true
+      t.references :cohort, foreign_key: true
       t.timestamps
     end
   end
