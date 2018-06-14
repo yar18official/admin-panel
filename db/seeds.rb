@@ -19,10 +19,10 @@ Instructor.create(first_name: "Billie", last_name: "Holiday", age: 65, salary: 2
 Instructor.create(first_name: "Marshall", last_name: "Mathers", age: 49, salary: 160000, education: "High School", user_id: 5)
 Instructor.create(first_name: "Alice", last_name: "Cooper", age: 63, salary: 150000, education: "Bachelor's", user_id: 6)
 
-Cohort.create(title: "Intro to Rock", start_date: 2018-08-08, end_date: 2018-10-23, instructor_id: 1)
-Cohort.create(title: "Intro to Blues", start_date: 2018-08-08, end_date: 2018-10-23, instructor_id: 2)
-Cohort.create(title: "Intro to Jazz", start_date: 2018-08-08, end_date: 2018-10-23, instructor_id: 3)
-Cohort.create(title: "Intro to Hip Hop", start_date: 2018-08-08, end_date: 2018-10-23, instructor_id: 4)
+Cohort.create(title: "Intro to Rock", start_date: "2018-08-08", end_date: "2018-10-23", instructor_id: 1)
+Cohort.create(title: "Intro to Blues", start_date: "2018-08-08", end_date: "2018-10-23", instructor_id: 2)
+Cohort.create(title: "Intro to Jazz", start_date: "2018-08-08", end_date: "2018-10-23", instructor_id: 3)
+Cohort.create(title: "Intro to Hip Hop", start_date: "2018-08-08", end_date: "2018-10-23", instructor_id: 4)
 
 Course.create(title: "Vocal Warm Ups", total_hours: 20, instructor_id: 3)
 Course.create(title: "Stage Presence 101", total_hours: 20, instructor_id: 1)
