@@ -6,4 +6,14 @@ module ApplicationHelper
     def get_student(id)
         Student.find(id)
     end
+
+    def get_instructor(id)
+        Instructor.find_by(user_id: id)
+    end
+    def get_courses(id)
+        Course.where(instructor_id: id)
+    end
+    def get_cohorts(id)
+        Cohort.where(instructor_id: id)
+    end
 end
