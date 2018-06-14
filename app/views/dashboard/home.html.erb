@@ -2,38 +2,63 @@
     <div class="row">
         <div class="quick_facts col-md-8">
             <% if user_signed_in? %>
-            <div class="welcome">
-                <h5>Welcome, <%= current_user.full_name %>!</h5>
-            </div>
-            <div class="quick_stats">
-                Stats Coming soon!
-            </div>
+                <div class="welcome">
+                    <h5>Welcome, <%= current_user.full_name %>!</h5>
+                </div>
+                <% instructor = get_instructor(current_user.id) %>
+                <% if instructor %>
+                    <div class="my_cohorts">
+                        <h5>Your Cohorts</h5>
+                        <% @my_cohorts = get_cohorts(current_user.id) %>
+                        <% @my_cohorts.each do |cohort|%>
+                            <%= link_to "#{cohort.title}", cohort_path("#{cohort.id}"), :class => 'btn btn-sm btn-secondary' %>
+                        <% end %>
+                    </div>
+                    <div class="my_courses">
+                        <% @my_courses = get_courses(current_user.id) %>
+                        <h5>Your Courses</h5>
+                        <% @my_courses.each do |course|%>
+                            <%= link_to "#{course.title}", course_path("#{course.id}"), :class => 'btn btn-sm btn-info' %>
+                        <% end %>
+                    </div>
+                <% end %>
             <% else %>
-            <h3>Welcome to the School of Rock</h3>
-            <h3>Register or Login to get Rockin!</h3>
+                <h3>Welcome to the School of Rock</h3>
+                <h3>Register or Login to get Rockin!</h3>
             <% end %>
-            <% if can? :manage, User %>
+
         </div>
-        <div class="quick_add col-sm text-right">
-            <h4 class="text-center">Quick Add</h4>
-            <div class="well text-center">
-                <ul class="nav">
-                    <li class="nav-item"><%= link_to "New Instructor", new_instructor_path, remote: true, class: "nav-link" %></li>
-                    <li class="nav-item"><%= link_to "New Student", new_student_path, remote: true, class: "nav-link" %></li>
-                    <li class="nav-item"><%= link_to "New Course", new_course_path, remote: true, class: "nav-link" %></li>
-                    <li class="nav-item"><%= link_to "New Cohort", new_cohort_path, remote: true, class: "nav-link" %></li>
-                </ul>
+    </div>
+    <div class="row">
+        <% if can? :manage, User %>
+            <div class="quick_add col">
+                <h4 class="text-center">Quick Add</h4>
+                    <ul class="nav">
+                        <li class="nav-item"><%= link_to "New Instructor", new_instructor_path, remote: true, class: 'btn btn-lg btn-primary' %></li>
+                        <li class="nav-item"><%= link_to "New Cohort", new_cohort_path, remote: true, class: 'btn btn-lg btn-danger' %></li>
+                        <li class="nav-item"><%= link_to "New Course", new_course_path, remote: true, class: 'btn btn-lg btn-warning' %></li>
+                        <li class="nav-item"><%= link_to "New Student", new_student_path, remote: true, class: 'btn btn-lg btn-success' %></li>
+                    </ul>
             </div>
-        </div>
         <% end %>
     </div>
 </div>
 <div class="row">
     <div class="col-md-7">
-        <h5>Recent Activity</h5>
+        <h5>Recently Added Cohorts</h5>
+        <ul>
+        <% @new_cohorts.each do |cohort|%>
+            <li><%= link_to "#{cohort.title}", cohort_path("#{cohort.id}") %></li>
+        <% end %>
+        </ul>
     </div>
     <div class="col-md-5">
-        <h5>More Info</h5>
+        <h5>Recently Added Courses</h5>
+        <ul>
+            <% @new_courses.each do |course|%>
+                <li><%= link_to "#{course.title}", course_path("#{course.id}") %></li>
+            <% end %>
+        </ul>
     </div>
 </div>
 <%= render 'shared/dialog' %>
