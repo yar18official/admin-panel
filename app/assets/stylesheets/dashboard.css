@@ -66,7 +66,7 @@ body {
  * Content
  */
 
-[role="main"] {
+main {
   padding-top: 48px; /* Space for fixed navbar */
 }
 
@@ -108,5 +108,3 @@ body {
 
 .border-top { border-top: 1px solid #e5e5e5; }
 .border-bottom { border-bottom: 1px solid #e5e5e5; }
-
-@media ()
